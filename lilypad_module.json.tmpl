@@ -11,7 +11,7 @@
         "Concurrency": 1
       },
       "Docker": {
-        "Entrypoint": Null,
+        "Entrypoint": null,
         "EnvironmentVariables": [
           {{ if .DOCKERHUB_USERNAME }}"{{ subst "DOCKERHUB_USERNAME=%s" .DOCKERHUB_USERNAME }}",{{else}}"DOCKERHUB_USERNAME=lilypad",{{ end }}
           {{ if .DOCKERHUB_PASSWORD }}"{{ subst "DOCKERHUB_PASSWORD=%s" .DOCKERHUB_PASSWORD }}"{{else}}"DOCKERHUB_PASSWORD=Hello World"{{ end }}
