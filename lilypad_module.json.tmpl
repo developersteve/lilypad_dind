@@ -1,0 +1,35 @@
+{
+  "machine": {
+    "gpu": 0,
+    "cpu": 1000,
+    "ram": 100
+  },
+  "job": {
+    "APIVersion": "V1beta1",
+    "Spec": {
+      "Deal": {
+        "Concurrency": 1
+      },
+      "Docker": {
+        "Entrypoint": Null,
+        "EnvironmentVariables": [
+          {{ if .DOCKERHUB_USERNAME }}"{{ subst "DOCKERHUB_USERNAME=%s" .DOCKERHUB_USERNAME }}",{{else}}"DOCKERHUB_USERNAME=lilypad",{{ end }}
+          {{ if .DOCKERHUB_PASSWORD }}"{{ subst "DOCKERHUB_PASSWORD=%s" .DOCKERHUB_PASSWORD }}"{{else}}"DOCKERHUB_PASSWORD=Hello World"{{ end }}
+        ],
+        "Image": "lilypadnetwork/imagetest:latest@sha256:0568c73482e8105e44f730d30305d9824d8a2a87842ac68846646694effb31f4"
+      },
+      "Engine": "Docker",
+      "Network": {
+        "Type": "None"
+      },
+      "PublisherSpec": {
+        "Type": "IPFS"
+      },
+      "Resources": {
+        "GPU": ""
+      },
+      "Timeout": 1800,
+      "Verifier": "Noop"
+    }
+  }
+}

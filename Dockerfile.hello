@@ -1,0 +1,9 @@
+# Use a base image
+FROM alpine:latest
+
+# Add a simple script that prints "Hello, World!"
+RUN echo 'echo "Hello, World!"' > /hello.sh
+RUN chmod +x /hello.sh
+
+# Set the entrypoint to the script
+ENTRYPOINT ["/hello.sh"]
